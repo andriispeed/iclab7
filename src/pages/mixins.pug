@@ -1,0 +1,20 @@
+mixin tenderCard(t)
+  article.tender-card(data-category=t.categoryKey data-budget=t.budget.replace(/ /g, '').replace(',', '.') data-deadline=t.deadlineDate data-search=[t.id, t.title, t.buyer || buyer, t.description || ''].join(' '))
+    .card-top
+      span #{t.id} · #{t.category}
+      span.badge Прийом пропозицій
+    h3
+      if t.url
+        a(href=t.url)= t.title
+      else
+        = t.title
+    p.buyer-name= t.buyer || buyer
+    if t.description
+      p.muted= t.description
+    p.deadline Прийом до #{t.deadline}
+    .card-bottom
+      div
+        small Очікувана вартість
+        span.price #{t.budget} грн
+      if t.url
+        a.card-link(href=t.url) Детальніше →

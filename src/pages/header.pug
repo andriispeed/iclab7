@@ -1,0 +1,11 @@
+header.site-header
+  .container.header-inner
+    a.brand(href='index.html' aria-label='TenderPro — головна')
+      span.brand-mark T
+      span Tender#[strong Pro]
+    span.header-caption ПРОСТІР ПРОЗОРИХ ЗАКУПІВЕЛЬ
+    span.avatar(aria-label='Постачальник Андрій Шкіндер') АШ
+nav.main-nav(aria-label='Головна навігація')
+  .container.nav-inner
+    a(href='index.html' class=page === 'catalog' ? 'active' : '' aria-current=page === 'catalog' ? 'page' : undefined) Головна
+    a(href='equipment.html' class=page === 'detail' && t.id === 'TP-2026-001' ? 'active' : '' aria-current=page === 'detail' && t.id === 'TP-2026-001' ? 'page' : undefined) Офісна техніка

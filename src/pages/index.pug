@@ -1,0 +1,8 @@
+- const page = 'catalog'
+include data.pug
+include mixins.pug
+a.skip-link(href='#main') Перейти до вмісту
+include header.pug
+main#main.container(tabindex='-1')
+  include content.pug
+include footer.pug

@@ -1,0 +1,19 @@
+{
+  "name": "laba5",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "pug": "^3.0.4",
+    "sass-embedded": "^1.107.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pug": "^0.4.1"
+  }
+}

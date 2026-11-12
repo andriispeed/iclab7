@@ -1,0 +1,31 @@
+﻿@use 'variables' as *;
+@mixin flex($justify: flex-start, $gap: 1rem) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  gap: $gap;
+}
+@mixin panel($padding: 24px) {
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: $padding;
+}
+@mixin mobile {
+  @media (max-width: 760px) { @content; }
+}
+@mixin button($background: $primary, $foreground: $white) {
+  background: $background;
+  color: $foreground;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 11px 17px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: background .15s, box-shadow .15s;
+  &:hover { filter: brightness(.94); box-shadow: 0 3px 9px #18274412; }
+}

@@ -1,0 +1,66 @@
+- const page = 'detail'
+include data.pug
+- const t = tenders.find(tender => tender.id === (typeof selectedTenderId === 'undefined' ? 'TP-2026-001' : selectedTenderId))
+a.skip-link(href='#main') Перейти до вмісту
+include header.pug
+main#main.container(tabindex='-1')
+  a(href='index.html') ← Усі тендери
+  .page-heading
+    p.eyebrow #{t.id} · #{t.category}
+    h1= t.title
+    p.muted= t.buyer || buyer
+  span.badge Прийом пропозицій
+  .detail-grid
+    section.panel.prose
+      h2 Умови закупівлі
+      p= t.description
+      h2 Позиції закупівлі
+      ul
+        each item in t.items
+          li #{item.name} — #{item.quantity} шт.
+      h2 Документи учасника
+      ul
+        li Цінова пропозиція та специфікація товарів.
+        li Підтвердження досвіду виконання аналогічних договорів.
+        li Документи у форматі PDF або DOCX, до 20 МБ кожний.
+    aside.panel
+      p.muted Очікувана вартість
+      h2 #{t.budget} грн
+      p Завершення прийому:
+      strong= t.deadline
+  section.panel.proposal-calculator
+    h2 Калькулятор вартості пропозиції
+    p.muted Вкажіть ціну за одиницю без ПДВ. Кількість береться з умов цього тендеру. Це попередній розрахунок, а не подання заявки.
+    form#proposal-calculator
+      each item, index in t.items
+        label.field
+          span #{item.name}, ціна без ПДВ, ₴ (#{item.quantity} шт.)
+          input.item-price(id='item-price-' + index type='number' min='0.01' max='100000000' step='0.01' placeholder='0' data-quantity=item.quantity)
+      label.field
+        span Ставка ПДВ, %
+        input#vat-rate(type='number' min='0' max='100' step='0.01' value='20' required)
+      p#proposal-total(role='status' aria-live='polite')
+      button.button(type='reset') Очистити розрахунок
+  section.panel.proposal-calculator
+    h2 Подати тестову заявку
+    p.muted Заповніть усі ціни в калькуляторі та контактні дані нижче. Заявка зберігається лише в цьому браузері; замовнику не надсилається. Документи в цій демонстрації не завантажуються.
+    form#application-form(data-tender-id=t.id data-deadline=t.deadlineDate + 'T18:00:00+02:00')
+      label.field
+        span Назва компанії
+        input#company-name(type='text' required maxlength='150' autocomplete='organization')
+      label.field
+        span Контактний email
+        input#contact-email(type='email' required maxlength='200' autocomplete='email')
+      label.field
+        span Коментар (необов’язково)
+        input#application-comment(type='text' maxlength='500' placeholder='Наприклад, доставка протягом 10 днів')
+      label.category-option
+        input#confirm-application(type='checkbox' required)
+        span Підтверджую умови тендеру та поточні ціни в калькуляторі.
+      button#submit-application.button(type='submit') Подати тестову заявку
+    p#application-status(role='status' aria-live='polite')
+    button#delete-application.button(type='button' hidden) Видалити локальну заявку
+  details.panel
+    summary Порядок визначення переможця
+    p Після завершення прийому замовник перевіряє документи, оцінює пропозиції та визначає переможця відповідно до умов закупівлі.
+include footer.pug

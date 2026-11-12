@@ -1,0 +1,34 @@
+-
+  const tenders = [
+    { id: 'TP-2026-001', deadlineDate: '2026-11-20', title: 'Офісна техніка для регіональних відділень', category: 'Товари', categoryKey: 'goods', budget: '480 000,00', deadline: '20 листопада 2026, 18:00', description: 'Постачання 20 ноутбуків та 10 багатофункціональних пристроїв. Гарантія від 24 місяців. Доставка до Києва протягом 30 днів. До пропозиції додайте специфікацію та гарантійні умови.' },
+    { id: 'TP-2026-002', deadlineDate: '2026-11-23', title: 'Послуги технічної підтримки ІТ-інфраструктури', category: 'Послуги', categoryKey: 'services', budget: '240 000,00', deadline: '23 листопада 2026, 18:00' },
+    { id: 'TP-2026-003', deadlineDate: '2026-11-27', title: 'Капітальний ремонт адміністративного корпусу', category: 'Роботи', categoryKey: 'works', budget: '1 250 000,00', deadline: '27 листопада 2026, 18:00' },
+    { id: 'TP-2026-004', deadlineDate: '2026-11-30', title: 'Канцелярські товари та папір для офісу', category: 'Товари', categoryKey: 'goods', budget: '85 000,00', deadline: '30 листопада 2026, 18:00' },
+    { id: 'TP-2026-005', deadlineDate: '2026-12-04', title: 'Логістичне обслуговування складської мережі', category: 'Послуги', categoryKey: 'services', budget: '360 000,00', deadline: '4 грудня 2026, 18:00' }
+  ]
+  const buyer = 'АТ «Промінь Груп»'
+  tenders.push(
+    { id: 'TP-2026-006', title: 'Мережеве обладнання для офісу', category: 'Товари', categoryKey: 'goods', budget: '125 000,00', deadlineDate: '2026-11-18', deadline: '18 листопада 2026, 18:00', buyer: 'ТОВ «Цифрові рішення»', description: 'Маршрутизатори, комутатори та точки доступу Wi-Fi.' },
+    { id: 'TP-2026-007', title: 'Прибирання офісних приміщень', category: 'Послуги', categoryKey: 'services', budget: '45 000,00', deadlineDate: '2026-11-20', deadline: '20 листопада 2026, 18:00', buyer: 'БЦ «Обрій»', description: 'Щоденне прибирання та миття вікон протягом місяця.' },
+    { id: 'TP-2026-008', title: 'Ремонт покрівлі складу', category: 'Роботи', categoryKey: 'works', budget: '780 000,00', deadlineDate: '2026-11-25', deadline: '25 листопада 2026, 18:00', buyer: 'ТОВ «Склад Логістик»', description: 'Заміна покриття, утеплення та відновлення водостоків.' },
+    { id: 'TP-2026-009', title: 'Питна вода для працівників', category: 'Товари', categoryKey: 'goods', budget: '12 500,50', deadlineDate: '2026-11-30', deadline: '30 листопада 2026, 18:00', buyer: 'БЦ «Обрій»', description: 'Бутильована вода з доставкою до офісу.' },
+    { id: 'TP-2026-010', title: 'Аудит фінансової звітності', category: 'Послуги', categoryKey: 'services', budget: '95 000,00', deadlineDate: '2026-12-01', deadline: '1 грудня 2026, 18:00', buyer: 'АТ «Промінь Груп»', description: 'Перевірка річної звітності та підготовка аудиторського висновку.' },
+    { id: 'TP-2026-011', title: 'Монтаж системи відеоспостереження', category: 'Роботи', categoryKey: 'works', budget: '240 000,00', deadlineDate: '2026-12-04', deadline: '4 грудня 2026, 18:00', buyer: 'ТОВ «Склад Логістик»', description: 'Встановлення камер, прокладання кабелю та налаштування запису.' },
+    { id: 'TP-2026-012', title: 'Меблі для переговорних кімнат', category: 'Товари', categoryKey: 'goods', budget: '320 000,00', deadlineDate: '2026-12-10', deadline: '10 грудня 2026, 18:00', buyer: 'ТОВ «Цифрові рішення»', description: 'Столи, стільці та обладнання для презентацій.' },
+    { id: 'TP-2026-013', title: 'Навчання працівників із кібербезпеки', category: 'Послуги', categoryKey: 'services', budget: '28 000,00', deadlineDate: '2026-12-15', deadline: '15 грудня 2026, 18:00', buyer: 'АТ «Промінь Груп»', description: 'Практичний курс із захисту облікових записів та протидії фішингу.' },
+    { id: 'TP-2026-014', title: 'Облаштування паркувального майданчика', category: 'Роботи', categoryKey: 'works', budget: '1 800 000,00', deadlineDate: '2026-12-20', deadline: '20 грудня 2026, 18:00', buyer: 'БЦ «Обрій»', description: 'Асфальтування, розмітка та встановлення освітлення.' },
+    { id: 'TP-2026-015', title: 'Заміна електропроводки в офісі', category: 'Роботи', categoryKey: 'works', budget: '150 000,00', deadlineDate: '2027-01-15', deadline: '15 січня 2027, 18:00', buyer: 'ТОВ «Цифрові рішення»', description: 'Монтаж кабелів, розеток і захисних автоматів.' }
+  )
+  tenders.push(
+    { id: 'TP-2026-016', title: 'Засоби індивідуального захисту', category: 'Товари', categoryKey: 'goods', budget: '60 000,00', deadlineDate: '2027-01-20', deadline: '20 січня 2027, 18:00', buyer: 'ТОВ «Склад Логістик»', description: 'Постачання 30 захисних касок та 50 пар робочих рукавичок. Доставка на склад однією партією.' },
+    { id: 'TP-2026-017', title: 'Обслуговування кондиціонерів', category: 'Послуги', categoryKey: 'services', budget: '42 000,00', deadlineDate: '2027-01-22', deadline: '22 січня 2027, 18:00', buyer: 'БЦ «Обрій»', description: 'Діагностика, очищення та профілактика 15 кондиціонерів.' },
+    { id: 'TP-2026-018', title: 'Заміна дверей адміністративної будівлі', category: 'Роботи', categoryKey: 'works', budget: '180 000,00', deadlineDate: '2027-01-25', deadline: '25 січня 2027, 18:00', buyer: 'АТ «Промінь Груп»', description: 'Демонтаж старих і встановлення 12 нових дверних блоків.' }
+  )
+  const detailData = {
+    'TP-2026-001': { url: 'equipment.html', items: [{ name: 'Ноутбук', quantity: 20 }, { name: 'Багатофункціональний пристрій', quantity: 10 }] },
+    'TP-2026-006': { url: 'network.html', items: [{ name: 'Маршрутизатор', quantity: 5 }, { name: 'Комутатор', quantity: 10 }, { name: 'Точка доступу Wi-Fi', quantity: 15 }] },
+    'TP-2026-012': { url: 'furniture.html', items: [{ name: 'Стіл', quantity: 4 }, { name: 'Стілець', quantity: 24 }, { name: 'Екран для презентацій', quantity: 2 }] },
+    'TP-2026-016': { url: 'safety.html', items: [{ name: 'Захисна каска', quantity: 30 }, { name: 'Робочі рукавички (пара)', quantity: 50 }] }
+  }
+  tenders.forEach(tender => Object.assign(tender, detailData[tender.id] || {}))
+  tenders.sort((a, b) => a.deadlineDate.localeCompare(b.deadlineDate))

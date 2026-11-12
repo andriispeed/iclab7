@@ -1,0 +1,67 @@
+﻿.hero
+  div
+    p.eyebrow МОЖЛИВОСТІ ДЛЯ ВАШОГО БІЗНЕСУ
+    h1 Знайдіть свій наступний тендер
+    p Актуальні закупівлі, зрозумілі умови та нові партнерства.
+  .hero-seal(aria-hidden='true')
+    span ✓
+    small Відкрито до співпраці
+.stats
+  div
+    strong= tenders.length
+    span відкритих тендерів
+  div
+    strong= (tenders.reduce((sum, t) => sum + Number(t.budget.replace(/ /g, '').replace(',', '.')), 0) / 1000000).toLocaleString('uk-UA', { maximumFractionDigits: 2 }) + ' млн ₴'
+    span загальний бюджет
+  div
+    strong= new Set(tenders.map(t => t.categoryKey)).size
+    span категорії закупівель
+.workspace
+  aside.panel.filters
+    .section-title
+      h2 Фільтри
+    fieldset.category-filters
+      legend Категорія закупівлі
+      each category in [{key:'all',name:'Усі категорії'},{key:'goods',name:'Товари'},{key:'services',name:'Послуги'},{key:'works',name:'Роботи'}]
+        label.category-option
+          input(id='filter-' + category.key type='radio' name='category' value=category.key checked=category.key === 'all')
+          span= category.name
+    details.filter-preview
+      summary Інші параметри
+      p.muted 
+      label.field
+        span Очікувана вартість від, ₴
+        input#budget-min(type='number' min='0' step='0.01' placeholder='0')
+      label.field
+        span Очікувана вартість до, ₴
+        input#budget-max(type='number' min='0' step='0.01' placeholder='Без обмежень')
+      label.field
+        span Дедлайн до
+        input#deadline(type='date')
+    button#reset-filters.button(type='button') Скинути фільтри
+    .filter-note Пошук і всі фільтри працюють разом.
+  section.results(aria-label='Перелік тендерів')
+    form#search-form.search
+      input#search-input(type='search' placeholder='Назва, номер або замовник…' aria-label='Пошук тендерів')
+      button.button(type='submit') Знайти
+    
+    .results-toolbar
+      h2 Актуальні тендери
+      span.muted За датою завершення
+    p#result-count.muted(role='status' aria-live='polite')
+    p#empty-results.panel(hidden) Нічого не знайдено. Змініть пошук або скиньте фільтри.
+    #tender-list.card-list
+      each t in tenders
+        +tenderCard(t)
+  aside.sidebar
+    section.panel.profile-card
+      .profile-icon АШ
+      span.badge Постачальник
+      h2 ТОВ «Альфа Постач»
+      p.muted Учасник платформи TenderPro
+      .verified  Профіль заповнено
+      hr
+      .profile-stat
+        span Мої заявки
+        strong 1
+    
